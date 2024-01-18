@@ -53,7 +53,9 @@ function signup() {
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
     const userExists = existingUsers.some(user => user.email === userEmail);
 
-    if (userExists) {
+    if (!username || !userEmail || !userPassword) {
+        alert("Please enter the credentials.");
+    } else if (userExists) {
         alert("User already exists. Please use a different email.");
     } else {
         // Save the new user
@@ -77,7 +79,9 @@ function loginUser(email, password) {
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
     const authenticatedUser = existingUsers.find(user => user.email === email && user.password === password);
 
-    if (authenticatedUser) {
+    if (!email || !password) {
+        alert("Please enter the credentials.");
+    } else if (authenticatedUser){
         console.log("Redirecting..."); // Check if this line is printed
         // Redirect to ToDo List page
         document.location.href = "OCTANET_WD_02/ToDoTask/ToDo.html";

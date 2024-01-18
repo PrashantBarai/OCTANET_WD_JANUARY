@@ -62,7 +62,7 @@ body{
     box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
 }
 
-input{
+#input-box{
     flex: 1;
     border: none;
     outline: none;
@@ -71,7 +71,7 @@ input{
     font-weight: 14px;
 }
 
-button{
+.row .btn{
     border: none;
     outline: none;
     padding: 16px 50px;
@@ -139,6 +139,7 @@ ul li span:hover{
 	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
+    /* display: none; */
 }
 #chk{
 	display: none;
@@ -158,7 +159,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-input{
+.input{
 	width: 73%;
 	height: 40px;
 	background: #e0dede;
@@ -170,7 +171,7 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-button{
+.button{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
