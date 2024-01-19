@@ -1,53 +1,18 @@
-const inputBox = document.getElementById("input-box");
-const listContainer = document.getElementById("list-container");
-
-/******************************************************************************/
-/******************************************************************************/
-
-function addTask(){
-    if(inputBox.value === ''){
-        alert("Please enter a task!");
-    }
-    else{
-        let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
-        // li.classList.add("list-group-item");
-        // li.classList.add("list-group-item-dark");
-        listContainer.appendChild(li);
-        let span = document.createElement('span');
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
-    }
-    inputBox.value = '';
-    saveData();
-}
-
-listContainer.addEventListener('click', function(e){
-    if(e.target.tagName === 'LI'){
-        e.target.classList.toggle("checked");
-        saveData();
-    }
-    else if(e.target.tagName === 'SPAN'){
-        e.target.parentElement.remove();
-        saveData();
-    }
-},false);
-
-function saveData(){
-    localStorage.setItem("data", listContainer.innerHTML);
-}
-function showTask(){
-    listContainer.innerHTML = localStorage.getItem("data");
-}
-showTask();
-
-/******************************************************************************/
-/******************************************************************************/
-
 function signup() {
     const username = document.getElementById("signupUsername").value;
     const userEmail = document.getElementById("signupEmail").value;
     const userPassword = document.getElementById("signupPassword").value;
+
+    // // Check if the user is already logged in
+    // const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    // if (loggedInUser) {
+    //     console.log("User is already logged in. Redirecting to ToDo.html...");
+    // // Redirect to ToDo.html if the user is logged in
+    // location.href = "ToDo.html";
+    // }
+
+    // Displaying the username in the UI
+    // usernameTag.textContent = username;
 
     // Check if the user already exists
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -83,8 +48,10 @@ function loginUser(email, password) {
         alert("Please enter the credentials.");
     } else if (authenticatedUser){
         console.log("Redirecting..."); // Check if this line is printed
+         // Store the logged-in user information
+        //  localStorage.setItem("loggedInUser", JSON.stringify(authenticatedUser));
         // Redirect to ToDo List page
-        document.location.href = "OCTANET_WD_02/ToDoTask/ToDo.html";
+        location.href = "ToDo.html";
         // Show the ToDo List container
         document.querySelector('.container').style.display = 'block';
     } else {
